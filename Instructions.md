@@ -12,12 +12,16 @@ This directory contains the code to sync assigned comments from Google Docs to T
 3.  Name the project "Docs to Todoist Sync".
 4.  Copy the content of `Code.gs` (provided in this folder) and paste it into the editor, replacing any existing code.
 
-## Step 2: Enable Drive API Service
-The script needs the **Advanced Drive Service** to read comments.
+## Step 2: Enable Services
+The script needs the **Advanced Drive Service** and **Google Tasks API**.
 1.  In the Apps Script editor, look at the left sidebar.
 2.  Click the **+** button next to **Services**.
 3.  Select **Drive API**.
 4.  Click **Add**. (Important: The script is updated for **Drive API v3**).
+5.  Click the **+** button again.
+6.  Select **Google Tasks API**.
+7.  Click **Add**.
+
 
 ## Step 3: Get Todoist API Token
 1.  Open Todoist in your browser.
@@ -30,12 +34,9 @@ The script needs the **Advanced Drive Service** to read comments.
 2.  Scroll down to **Script Properties**.
 3.  Click **Edit script properties** > **Add script property**.
 4.  **Property**: `TODOIST_API_TOKEN` | **Value**: [Your Token]
-5.  Click **Save**.
+5.  *(Optional)* **Property**: `SECONDARY_EMAIL` | **Value**: [Your Secondary Email]
+6.  Click **Save**.
 
-*Optional Configuration:*
-In `Code.gs` lines 12-14, you can edit:
-*   `SEARCH_HOURS`: How far back to scan for modified files.
-*   `SECONDARY_EMAIL`: Add a second email to monitor (e.g., `mikegustafson@gmail.com`).
 
 ## Step 5: Test the Script
 1.  Open `Code.gs`.
@@ -52,8 +53,10 @@ In `Code.gs` lines 12-14, you can edit:
 5.  Click **Save**.
 
 ## Logic Overview
-1.  **Docs -> Todoist**: Finds comments assigned to you.
-    *   *Note:* Even if the API hides the assignee field (common for external @gmail accounts), the script will detect if you are **mentioned** in the comment and create the task.
-2.  **Todoist -> Docs (Completion)**: Completing a Todoist task resolves the Google Doc comment.
-3.  **Docs -> Todoist (Resolution)**: Resolving a Google Doc comment closes the Todoist task (for tasks created after Dec 8, 2025).
+1.  **Docs -> Todoist**: Finds comments and checklist items assigned to you.
+    *   *Note:* The script detects assignments to both your main account and the optional `SECONDARY_EMAIL`.
+    *   *Note:* If a comment is blank (no text), the task will be titled "Blank Comment".
+2.  **Todoist -> Docs (Completion)**: Completing a Todoist task resolves the corresponding Google Doc comment or checklist item.
+3.  **Docs -> Todoist (Resolution)**: Resolving a Google Doc comment or checklist item closes the Todoist task.
+4.  **Efficiency**: The script only checks files and tasks modified in the **last 24 hours**. Older resolved items are ignored to keep the script fast.
 
