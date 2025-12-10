@@ -1,6 +1,8 @@
 # Setup Instructions: Google Docs to Todoist Sync
 
-This directory contains the code to sync assigned comments from Google Docs to Todoist.
+This directory contains the code to sync assigned comments and checklists from Google Docs to Todoist. It will look for assignments to the primary account email and the designated secondary email. 
+
+NOTE: Assignments to checklists inside a Google Doc are only supported in Workspace accounts. In those accounts the checklists can only be assigned to accounts within the domain.
 
 ## Prerequisites
 1.  **Google Account**: Creating the script in your Google Drive.
