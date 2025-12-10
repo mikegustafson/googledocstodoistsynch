@@ -4,7 +4,7 @@
 
   
 
-Let's be real: "You have a new mention in..." emails are where productivity goes to die. This script creates a seamless, two-way bridge between **Google Docs assignments** and **Todoist**, so you can actually do the work instead of managing the notifications.
+"You have a new mention in..." emails are where productivity goes to die. This script creates a seamless, two-way bridge between **Google Docs assignments** and **Todoist**, so you can actually do the work instead of managing the notifications.
 
 -----
 
