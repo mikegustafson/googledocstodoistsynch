@@ -11,12 +11,33 @@
 ## ✨ Features
 
   * **🕵️‍♀️ The Hunter-Gatherer:** Automatically finds comments and checklist items assigned to you across *all* your Google Docs.
+  * **🧠 Smart Threading:** Uses a "Last Mention Wins" heuristic. Use natural conversation (`@bob`, `@me`) to reassign tasks in comment threads—the script follows the conversation, not just the API metadata.
+  * **✅ Uncheck to Re-Open:** Unchecking a task in a Google Doc checklist automatically re-creates the task in Todoist if it was previously closed.
   * **👯 Double Identity:** Supports your main Google account + an optional `SECONDARY_EMAIL` (perfect for handling those "personal email" vs "work email" mix-ups).
   * **⚡ Two-Way Sync:**
       * **Todoist $\rightarrow$ Docs:** Check off the task in Todoist? 🪄 The comment resolves in the Doc.
       * **Docs $\rightarrow$ Todoist:** Resolve the comment in the Doc? 🪄 The task closes in Todoist.
   * **👻 Ghost Buster:** Handles blank comments gracefully (titles them "Blank Comment" instead of crashing).
   * **🏎️ Speed Demon:** Only scans files and tasks modified in the **last 24 hours**. We don't waste quotas scanning documents from 2019.
+
+-----
+
+## 🧠 Logic & Capabilities
+
+### 1. "Last Mention Wins" (Comment Threading)
+The script ignores potentially stale Google API metadata and instead reads the conversation history.
+*   **Reassign**: Reply to a comment with `@someone_else` -> The Todoist task closes for you.
+*   **Claim**: Reply with `@me` (or your email) -> A new Todoist task is created for you.
+*   **Discussion**: Replies without mentions do not change ownership.
+
+### 2. Checklist Synchronization
+*   **Check**: Resolving an item in Docs closes it in Todoist.
+*   **Uncheck**: Unchecking an item in Docs **re-creates** the task in Todoist (even if you finished it weeks ago).
+*   **Todoist Completion**: Completing in Todoist resolves the item in Docs.
+
+### 3. Blank & Context-Aware Tasks
+*   Comments with no text are titled **"Blank Comment"**.
+*   Tasks include a direct link to the specific comment/checklist item in the description.
 
 -----
 
