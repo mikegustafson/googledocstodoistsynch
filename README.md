@@ -53,13 +53,13 @@ Before you dive in, you'll need three things:
 
 ## 🚀 Installation
 
-### Option A: The "Pro" Way (CLASP)
+### Option A: The "I'm a Pro" Way (CLASP)
 
 If you're cool and use the command line:
 
 1.  Clone this repo:
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/mikegustafson/googledocstodoistsynch.git
     cd your-repo-name
     ```
 2.  Login to Google:
@@ -85,7 +85,7 @@ If you're cool and use the command line:
 
 ## ⚙️ Configuration (Important\!)
 
-We don't hardcode secrets here. We use **Script Properties**.
+Add and update **Script Properties**.
 
 1.  In the Apps Script Editor, click the **Gear Icon ⚙️** (Project Settings).
 2.  Scroll to the very bottom to **Script Properties**.
@@ -100,7 +100,7 @@ We don't hardcode secrets here. We use **Script Properties**.
 
 ## ⏰ Set the Trigger
 
-This script doesn't run by magic (yet). You need to tell Google when to run it.
+Tell Google when to run it.
 
 1.  In the Apps Script Editor, click the **Alarm Clock ⏰** icon (Triggers) on the left.
 2.  Click **+ Add Trigger** (bottom right).
